@@ -1,13 +1,21 @@
-var city = "nyc";
+function cityChange(){
+  //get the value of input #a and input #b
+  var city =  $("#city-type").val();
 
-function newyorkcity() {
-  if (city === "nyc") {
-    $("body").addClass("austin");
-  } else if (city === "austin") {
-    $("body").addClass("nyc");
-  } else if (city === "sf") {
-    $("body").addClass("sf");
-  } else if (city === "la") {
-    $("body").addClass("la");
+  // var comparison = $("#comparison");
+
+  city = String(city);
+
+if ( city === "nyc"){
+  $("body").addClass("nyc");
+}else if ( city === "la"){
+$("body").addClass("la");
+}else if ( city === "la"){
+$("body").addClass("la");
+  }else{
+    //something else that is not right
+    alert ("Please input")
   }
 }
+
+$( "#submit-btn" ).click(cityChange);
