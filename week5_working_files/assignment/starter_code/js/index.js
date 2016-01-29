@@ -1,21 +1,44 @@
-function cityChange(){
-  //get the value of input #a and input #b
-  var city =  $("#city-type").val();
+$(document).ready(function() {});
 
-  // var comparison = $("#comparison");
 
-  city = String(city);
+function cityChange() {
+  var city = $("#city-type").val();
 
-if ( city === "nyc"){
-  $("body").addClass("nyc");
-}else if ( city === "la"){
-$("body").addClass("la");
-}else if ( city === "la"){
-$("body").addClass("la");
-  }else{
+  // console.log(city);
+
+
+  if (city === "NYC" || city === "New York City" || city === "NY") {
+    $("body").addClass("nyc");
+    $("body").removeClass("sf", "la", "austin", "sydney");
+
+    // console.log("nyc");
+
+  } else if (city === "LA" || city === "LAX" || city === "Los Angeles") {
+    $("body").removeClass("sf", "nyc", "austin", "sydney");
+    $("body").addClass("la");
+
+  } else if (city === "SF" || city === "San Francisco" || city === "Bay Area") {
+    $("body").removeClass("nyc", "la", "austin", "sydney");
+    $("body").addClass("sf");
+
+  } else if (city === "ATX" || city === "Austin") {
+    $("body").removeClass("sf", "la", "nyc", "sydney");
+    $("body").addClass("austin");
+
+  } else if (city === "SYD" || city === "Sydney") {
+    $("body").removeClass("sf", "la", "austin", "nyc");
+    $("body").addClass("sydney");
+
+  } else {
     //something else that is not right
-    alert ("Please input")
+    alert("Error. Please input again.")
   }
+
+  event.preventDefault();
+
 }
 
-$( "#submit-btn" ).click(cityChange);
+
+
+$("#submit-btn").click(cityChange);
+// $("#city-type").reset();
