@@ -4,30 +4,32 @@ $(document).ready(function() {});
 function cityChange() {
   var city = $("#city-type").val();
 
+  // resets the input form after submission
+  $("#city-type").val('');
+
+  // change all text to Lowercase
+  // trim removes all white space
+
+  city = city.toLowerCase().trim();
+
   // console.log(city);
 
 
-  if (city === "NYC" || city === "New York City" || city === "NY") {
-    $("body").addClass("nyc");
-    $("body").removeClass("sf", "la", "austin", "sydney");
-
+  if (city === "nyc" || city === "new york city" || city === "ny") {
+    $("body").attr("class", "nyc");
     // console.log("nyc");
 
-  } else if (city === "LA" || city === "LAX" || city === "Los Angeles") {
-    $("body").removeClass("sf", "nyc", "austin", "sydney");
-    $("body").addClass("la");
+  } else if (city === "la" || city === "lax" || city === "los angeles") {
+    $("body").attr("class", "la");
 
-  } else if (city === "SF" || city === "San Francisco" || city === "Bay Area") {
-    $("body").removeClass("nyc", "la", "austin", "sydney");
-    $("body").addClass("sf");
+  } else if (city === "sf" || city === "san francisco" || city === "bay area") {
+    $("body").attr("class", "sf");
 
-  } else if (city === "ATX" || city === "Austin") {
-    $("body").removeClass("sf", "la", "nyc", "sydney");
-    $("body").addClass("austin");
+  } else if (city === "atx" || city === "austin") {
+    $("body").attr("class", "austin");
 
-  } else if (city === "SYD" || city === "Sydney") {
-    $("body").removeClass("sf", "la", "austin", "nyc");
-    $("body").addClass("sydney");
+  } else if (city === "syd" || city === "sydney") {
+    $("body").attr("class", "sydney");
 
   } else {
     //something else that is not right
